@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card center-card">
+    <h1>Welcome to the Online Platform Ticket Booking System</h1>
+    <p>A simple mini-project demonstration for railway platform ticket booking.</p>
+    <div class="button-group">
+        <a class="btn" href="{{ url_for('login') }}">User Login</a>
+        <a class="btn secondary" href="{{ url_for('register') }}">User Register</a>
+        <a class="btn outline" href="{{ url_for('admin_login') }}">Admin Login</a>
+    </div>
+</div>
+{% endblock %}
+
+

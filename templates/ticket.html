@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Ticket Details</h2>
+    {% if ticket and booking %}
+        <p><strong>Ticket ID:</strong> {{ ticket.ticketId }}</p>
+        <p><strong>Platform Number:</strong> {{ ticket.platformNumber }}</p>
+        <p><strong>Issue Time:</strong> {{ ticket.issueTime }}</p>
+        <p><strong>Expiry Time:</strong> {{ ticket.expiryTime }}</p>
+        <p><strong>Status:</strong> {{ ticket.status }}</p>
+        <hr>
+        <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+        <p><strong>Duration:</strong> {{ booking.selectedDuration }} hour(s)</p>
+        {% if payment %}
+            <p><strong>Payment Status:</strong> {{ payment.paymentStatus }}</p>
+            <p><strong>Payment Amount:</strong> {{ payment.amount }}</p>
+        {% else %}
+            <p><strong>Payment:</strong> Not found</p>
+        {% endif %}
+    {% else %}
+        <p>Ticket not found.</p>
+    {% endif %}
+    <div class="button-group">
+        <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        <a class="btn secondary" href="{{ url_for('history') }}">View History</a>
+    </div>
+</div>
+{% endblock %}
+
+

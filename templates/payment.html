@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card form-card">
+    <h2>Payment</h2>
+    {% if booking %}
+        <p><strong>Platform:</strong> {{ booking.platformNumber }}</p>
+        <p><strong>Duration:</strong> {{ booking.selectedDuration }} hour(s)</p>
+        <p><strong>Amount:</strong> {{ amount }}</p>
+        <p class="small-text">This is a simulated payment. In a real system, a payment gateway would be integrated here.</p>
+        <form method="post">
+            <button type="submit" class="btn">Pay Now</button>
+        </form>
+    {% else %}
+        <p>No booking found for payment.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+

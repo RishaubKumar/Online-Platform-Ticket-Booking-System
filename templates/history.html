@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Your Booking History</h2>
+    {% if bookings %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Platform</th>
+                <th>Duration (hrs)</th>
+                <th>Booking Time</th>
+                <th>Ticket Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for b in bookings %}
+                <tr>
+                    <td>{{ b.bookingId }}</td>
+                    <td>{{ b.platformNumber }}</td>
+                    <td>{{ b.selectedDuration }}</td>
+                    <td>{{ b.bookingTime }}</td>
+                    <td>
+                        {% if b.ticket %}
+                            {{ b.ticket.status }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="btn small" href="{{ url_for('ticket_details', booking_id=b.bookingId) }}">View Ticket</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bookings found.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card center-card">
+    <h2>Hello, {{ user.name }}!</h2>
+    <p>Welcome to your dashboard. From here you can book new platform tickets or view your booking history.</p>
+    <div class="button-group">
+        <a class="btn" href="{{ url_for('book') }}">Book Platform Ticket</a>
+        <a class="btn secondary" href="{{ url_for('history') }}">View Booking History</a>
+    </div>
+</div>
+{% endblock %}
+
+
